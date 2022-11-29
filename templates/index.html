@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Malicious URL Detection App</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                margin: 0px;
+                font-family: sans-serif;
+                height: 100%;
+                overflow: auto;
+            }
+            .main{
+                padding: 15% 35%;
+                background-color: #2E3543;
+            }
+            .inner-block{
+                padding: 50px 70px;
+                background-color: white;
+                text-align: center;
+            }
+            h2{font-weight: 800;
+                font-size: 23pt;}
+            /* .inner-block *{
+                margin: 15px 0px;
+            } */
+            .submitbutton{
+                width: 277px;
+                padding: 10px;
+                border: none;
+                background: #5352ed;
+                color: white;
+                font-size: 18pt;
+                font-weight: 700;
+                margin-bottom: 25px;
+            }
+            .url{
+                width: 250px;
+                margin-bottom: 40px;
+                padding: 10px;
+                border: solid 4px rgb(235, 235, 235);
+
+            }
+            .url:focus{
+                border: solid 4px black;   
+            }
+            .bad{
+                padding: 20px;
+                background: #d12828;
+                color: white;
+                font-weight: 700;
+                font-size: 14pt;
+                border: 2px solid red;
+                width: 234px;
+            }
+            .good{
+                width: 234px;
+                padding: 20px;
+                background: #34a734;
+                color: wheat;
+                font-weight: 700;
+                font-size: 14pt;
+                border: 2px solid green;
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        <div class="main">
+
+            <div class="inner-block">
+                <form action="#" method="post">
+                
+                    <h2> Malicious URL Detection </h2> <br>
+                    <input required class="url" type="url" name="urlinput" placeholder="Enter URL"/> <br>
+                    <input class="submitbutton" type="submit" value="Submit"/>
+                    
+                </form>
+                {% if r == 1 %}
+                <div class="bad">
+                    Malicious URL!!!
+                </div>
+                {% elif r == 0 %}
+                <div class="good">
+                    Not Malicious URL
+                </div>
+                {% endif %}        
+            </div>
+
+        </div>
+
+    </body>
+
+</html>
