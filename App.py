@@ -13,11 +13,11 @@ app = Flask(__name__)
 @app.route("/", methods=["POST", "GET"])
 def home():
     if request.method == "POST":
-        URL = request.form["urlinput"]
+        inputURL = request.form["urlinput"]
 
         # remove http:// OR https://
-        if URL.find('//') != -1:
-            URL = URL[URL.find('//')+2: ]
+        if inputURL.find('//') != -1:
+            URL = inputURL[inputURL.find('//')+2: ]
         # remove www.
         if URL.startswith('www.'):
             URL = URL[4:]
@@ -25,7 +25,7 @@ def home():
         # predict the result
         result = model.predict(cv.transform([URL]))[0]
 
-        return render_template("index.html", r = result)
+        return render_template("index.html", r = result, inputURL = inputURL)
 
     return render_template("index.html")
 
